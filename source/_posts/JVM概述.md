@@ -47,10 +47,10 @@ Java是高级开发语言，不可能直接在物理机上直接运行，要么�
 JVM运行的其实是字节码, 所以与其说是解释Java是怎样在JVM中运行的，还不如说是解释虚拟机是如何运行字节码的。  
 首先，由Java语言编写的程序会有Java编译器编译成字节码(class文件)，然后加载到Java虚拟机中。加载后的Java类会被存放于方法区中，然后在实际运行时，虚拟机就会执行方法区的代码。  
 Java虚拟机主要分为堆和栈来存储运行时数据，栈细分为面向Java方法的方法栈、面向本地方法（native方法，由C++编写）的本地方法栈，以及存放各个线程执行位置的PC寄存器。  
-![Java内存](https://m.qpic.cn/psb?/V12IxaQC4QCAPb/VmBMCqUDNA8QspZkT0MgaEVxav05AthZRg9wTvsrVyI!/b/dDQBAAAAAAAA&bo=*wLSAf8C0gEDCSw!&rf=viewer_4)  
+![Java内存](/image/Java内存.png)  
 运行时，每调用一个Java方法，虚拟机就会在当前线程的Java方法栈中生成一个栈帧，其大小是提前就计算好的，用于存放局部变量以及字节码的操作数，虚拟机不要求栈帧在内存中连续分布。当退出执行的方法时，不管发没发生异常，虚拟机都会弹出当前线程的当前栈帧，并将之舍弃。  
 像上面所说，字节码不能在物理机上直接执行，还是需要把字节码转换为机器码才能够被物理机识别，在HotSpot里面，这种转换有两种形式，一种是解释执行，将字节码逐条翻译成为机器码并执行，另一种就是即时编译，也就是JIT(Just-In-Time complilation)，即将一个方法中包含的所有字节码编译成为机器码后再执行。  
-![JVM解释编译代码](https://m.qpic.cn/psb?/V12IxaQC4QCAPb/jrja8Kq74S9Kev3SxK8lW6soSjt5MeHBf7aEZQMKhaY!/b/dFoAAAAAAAAA&bo=kAIrApACKwIDCSw!&rf=viewer_4)  
+![JVM解释编译代码](/image/JVM代码解释和编译.png)  
 这两种方式各有优劣，前者不需要等待编译，而后者在于实际的运行速度更快。HotSpot采用的就是混合模式，它会先解释执行字节码，然后将其中反复执行的热点代码(HotSpot Code)以方法为单位进行即时编译，也也是HotSpot JVM名字的由来。
 
 ##### JVM运行效率如何？
