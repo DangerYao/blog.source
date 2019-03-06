@@ -7,6 +7,7 @@ tags:
  - technology
  - notes
  - exception
+comments: true
 ---
 
 
@@ -73,7 +74,7 @@ System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
 
 ###### 第二种方式 - 修改排序代码
 
-```
+```java
 public static <T extends AbstractDesignObject> void sortListWithOrderField(List<T> values) {
 		Collections.sort(values,new Comparator<T>() {
 
