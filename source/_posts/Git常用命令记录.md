@@ -43,12 +43,12 @@ git status
 
 ##### 提交代码到远程仓库
 ```shell
-git push orign master
+git push origin master
 ```
 可以将master换成对应的分支
 ##### 更新远程仓库代码
 ```shell
-git pull orgin master
+git pull origin master
 ```
 
 *未完待续*
